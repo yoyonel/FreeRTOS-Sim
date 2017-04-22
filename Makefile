@@ -16,7 +16,8 @@ VPATH	        += $(SRCROOT)/Source/portable/MemMang
 VPATH	        += $(SRCROOT)/Source/portable/GCC/POSIX
 VPATH           += $(SRCROOT)/Demo
 VPATH			+= $(SRCROOT)/Project/FileIO
-VPATH			+= $(SRCROOT)/Project
+# VPATH			+= $(SRCROOT)/Project
+VPATH			+= $(SRCROOT)/Assigment_1
 
 # FreeRTOS Objects
 C_FILES			+= croutine.c
