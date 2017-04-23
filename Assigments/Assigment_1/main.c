@@ -169,15 +169,16 @@ static t_task tasks[NB_TASKS] = {
 int main ( void )
 {
 	/* Start tasks. */
-	for(unsigned int id_task = 0; id_task < NB_TASKS; ++id_task) {
+	// url: https://www.quora.com/How-do-I-iterate-efficiently-through-an-array-of-ints-of-unknown-size-in-C-where-each-element-must-be-nonzero
+	for(t_task *pvTask=tasks; pvTask < (&tasks)[1]; pvTask++) {
 		xTaskCreate(
-				tasks[id_task]._pvTaskCode,
-				tasks[id_task]._task_name,
-				tasks[id_task]._stack_size, 
-				&tasks[id_task]._task_parameters,
-				tskIDLE_PRIORITY + tasks[id_task]._task_priority, 
-				NULL
-			);	
+			pvTask->_pvTaskCode,
+			pvTask->_task_name,
+			pvTask->_stack_size, 
+			&pvTask->_task_parameters,
+			tskIDLE_PRIORITY + pvTask->_task_priority, 
+			NULL
+		);	
 	}
 
 	/* Create the standard demo tasks. */
