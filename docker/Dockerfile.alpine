@@ -1,0 +1,23 @@
+# FROM alpine:latest
+# urls: 
+# - https://hub.docker.com/r/multiarch/alpine/tags/
+# - https://github.com/gliderlabs/docker-alpine/issues/131
+# - https://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management
+FROM multiarch/alpine:x86-latest-stable
+
+# urls: 
+# - https://forum.alpinelinux.org/forum/general-discussion/trying-build-minetest
+# - https://github.com/gliderlabs/docker-alpine/blob/master/docs/usage.md
+RUN	apk update && \
+	apk add \
+		cmake \
+		build-base \
+		file \
+	&& rm -rf /var/cache/apk/*
+
+COPY scripts/build.sh /build.sh
+RUN chmod +x /build.sh
+
+WORKDIR /FreeRTOS-Sim
+
+CMD ["/build.sh"]
