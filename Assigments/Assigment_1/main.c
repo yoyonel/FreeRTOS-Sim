@@ -170,7 +170,8 @@ int main ( void )
 {
 	/* Start tasks. */
 	// url: https://www.quora.com/How-do-I-iterate-efficiently-through-an-array-of-ints-of-unknown-size-in-C-where-each-element-must-be-nonzero
-	for(t_task *pvTask=tasks; pvTask < (&tasks)[1]; pvTask++) {
+	t_task *pvTask = NULL;
+	for(pvTask=tasks; pvTask < (&tasks)[1]; pvTask++) {
 		xTaskCreate(
 			pvTask->_pvTaskCode,
 			pvTask->_task_name,
