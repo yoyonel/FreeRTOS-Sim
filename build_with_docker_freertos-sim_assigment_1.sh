@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
-./docker/run.sh docker/src Assigments/Assigment_1 build/Assigment_1
+export FREERTOS_SIM_SRCS=docker/src/FreeRTOSv9.0.0
+export FREERTOS_SIM_PROJECT=Assigments/Assigment_1
+export FREERTOS_SIM_BUILD_DIRECTORY=build/Assigment_1
 
-# remove symbolic link
-if[ -f Assigments/Assigment_1/FreeRTOS-Project ]; then
-	rm Assigments/Assigment_1/FreeRTOS-Project
-fi
+./build_with_docker_freertos-sim.sh
