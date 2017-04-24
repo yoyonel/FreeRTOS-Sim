@@ -109,11 +109,6 @@ else(${FREERTOS_CONFIG} MATCHES "FREERTOS_CONFIG-NOTFOUND")
 	)
 	########################################
 
-	# # REQUIREMENT: FreeRTOSConfig.h
-	# include_directories(Project)
-
-	# add_subdirectory(Source)
-
 	########################################
 	include_directories(Demo/include)
 
@@ -131,48 +126,7 @@ else(${FREERTOS_CONFIG} MATCHES "FREERTOS_CONFIG-NOTFOUND")
 	)
 	########################################
 
-	# ########################################
-	# #
-	# set(SRCS_FREERTOS-SIM_PROJECT
-	# 	# Main Object
-	# 	Project/main.c
-	# 	#
-	# 	Project/FreeRTOSConfig.h
-	# )
-
-	# add_executable(
-	# 	FreeRTOS-Sim_Project
-	# 	${SRCS_FREERTOS-SIM_PROJECT}
-	# )
-
-	# target_link_libraries(
-	# 	FreeRTOS-Sim_Project
-	# 	${FREERTOS-SIM_LIBS}
-	# )
-	# ########################################
-
-	# ########################################
-	# include_directories(Assigments/Assigment_1)
-
-	# #
-	# set(SRCS_FREERTOS-SIM_ASSIGMENT_1
-	# 	# Main Object
-	# 	Assigments/Assigment_1/main.c
-	# 	#
-	# 	Assigments/Assigment_1/FreeRTOSConfig.h
-	# )
-
-	# add_executable(
-	# 	FreeRTOS-Sim_Assigment_1
-	# 	${SRCS_FREERTOS-SIM_ASSIGMENT_1}
-	# )
-
-	# target_link_libraries(
-	# 	FreeRTOS-Sim_Assigment_1
-	# 	${FREERTOS-SIM_LIBS}
-	# )
-	# ########################################
-
+	# Add Project [from HOST]
 	add_subdirectory(Project)
 	
 endif(${FREERTOS_CONFIG} MATCHES "FREERTOS_CONFIG-NOTFOUND")
