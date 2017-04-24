@@ -1,11 +1,17 @@
 #!/usr/bin/env sh
 
+set -e
+
+export FREERTOS_CONFIG=/FreeRTOS-Sim/Project
+
 cd /FreeRTOS-Sim
 
-mkdir -p build
+ln -s /FreeRTOS-Project /FreeRTOS-Sim/Project
 
-cd build
+cd /FreeRTOS-Build
 
-cmake . ../.
+cmake . /FreeRTOS-Sim
 
 make -j
+
+rm -f /FreeRTOS-Sim/Project

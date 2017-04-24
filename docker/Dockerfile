@@ -11,6 +11,8 @@ RUN apt-get update && apt-get -y install \
 COPY scripts/build.sh /build.sh
 RUN chmod +x /build.sh
 
+# COPY src /FreeRTOS-Sim 
+
 WORKDIR /FreeRTOS-Sim
 
 CMD ["/build.sh"]
